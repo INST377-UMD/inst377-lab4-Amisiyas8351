@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <link rel = "stylesheet" href = "index.css">
+    <body>
+        <h1 class = "header">
+            <p class = "title" id = "js_targeted_paragraph">
+                INST377 - Lab 4
+            </p>
+        </h1>
+
+        <main>
+            <section class = 'section1'>
+                <form>
+                    <label for = "resizableTextbox">
+                        Name:
+                    </label>
+                    <input id = "your_name" type = "text" class = "textbox" placeholder = "Required*" Required>
+                    <button onclick = "showAlert()" class = "alert_button">Alert Me!</button>
+                    <script type = "text/javascript">
+                        function showAlert() {
+                            const firstName = (document.getElementById('your_name').value);
+                            alert("Hello " + firstName)
+                        }
+                    </script>
+                </form>
+            </section>
+
+
+            <section class = 'section2'>
+                <button onclick = "changeBackgroundColor()" class = "change_color">Change Color</button>
+                <script type = "text/javascript">
+                    function changeBackgroundColor() {
+                        if(document.body.style.backgroundColor == 'lightblue') {
+                            document.body.style.backgroundColor = 'blue';
+                        } else {
+                            document.body.style.backgroundColor = 'lightblue';
+                        }
+                    }
+                </script>
+            </section>
+
+
+            <section class = 'section3'>
+                <form name = "contactForm" onsubmit = "return(formValidation())">
+                    <label for = "resizableTextbox">
+                        Text Tester:
+                    </label>
+                    <input type = "text" id = "userName" class = "textbox" placeholder = "Required*" Required>
+                    <button onclick = "formValidation()" class = "validate_button">Validate Text</button>
+                    <script type = "text/javascript">
+                        function formValidation() {
+                            const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                            if (validationRegex.test(document.contactForm.userName.value)) {
+                                alert('Absolutely Not')
+                                return false
+                            }
+                            
+                            return true;
+                        }
+                    </script>
+                </form>
+            </section>
+
+
+            <section class = 'section4'>
+                <button onclick = "addText()" class = "add_text">Add Text</button>
+                <script type = "text/javascript">
+                    function addText() {
+                        if (document.getElementById('js_targeted_paragraph').textContent = "INST377 - Lab 4") {
+                            document.getElementById('js_targeted_paragraph').textContent += " - Adding Text"
+                        }
+                    }
+                </script>
+            </section>
+        </main>
+    </body>
+</html>
