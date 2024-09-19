@@ -11,18 +11,23 @@
         <main>
             <section class = 'section1'>
                 <form>
-                    <label for = "resizableTextbox">
-                        Name:
+                    <label for = "your_name">
+                      Name:
                     </label>
-                    <input id = "your_name" type = "text" class = "textbox" placeholder = "Required*" Required>
-                    <button onclick = "showAlert()" class = "alert_button">Alert Me!</button>
+                    <input id = "your_name" type = "text" class = "textbox" placeholder = "Required" />
+                    <button type = "button" onclick = "showAlert()" class = "alert_button">Alert Me!</button>
                     <script type = "text/javascript">
-                        function showAlert() {
-                            const firstName = (document.getElementById('your_name').value);
-                            alert("Hello " + firstName)
+                      function showAlert() {
+                        const firstName = document.getElementById('your_name').value;
+                        
+                        if (firstName === "") {
+                          alert("Name is required");
+                          return;
                         }
+                        alert("Hello " + firstName);
+                      }
                     </script>
-                </form>
+                  </form>
             </section>
 
 
@@ -45,8 +50,8 @@
                     <label for = "resizableTextbox">
                         Text Tester:
                     </label>
-                    <input type = "text" id = "userName" class = "textbox" placeholder = "Required*" Required>
-                    <button onclick = "formValidation()" class = "validate_button">Validate Text</button>
+                    <input type = "text" id = "userName" class = "textbox" placeholder = "Required" required>
+                    <button type = "button" onclick = "formValidation()" class = "validate_button">Validate Text</button>
                     <script type = "text/javascript">
                         function formValidation() {
                             const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
